@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-import os
+print ("СТАРТ") # <---
+import os # <---
 import pyodbc
 from dotenv import load_dotenv
 

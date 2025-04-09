@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': 'Собачки',
+        'NAME': os.getenv("DJANGO_DATABASE_NAME", "Собачки"),
         'USER': os.getenv('DJANGO_DATABASE_USER'),
         'PASSWORD': os.getenv('DJANGO_DATABASE_PASSWORD'),
         'HOST': os.getenv('DJANGO_DATABASE_HOST'),
