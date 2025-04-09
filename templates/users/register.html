@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Регистрация</h2>
+  <form method="post">
+    {% csrf_token %}
+    {% if form.errors %}
+      <div class="alert alert-danger">
+        <strong>Пожалуйста, исправьте следующие ошибки:</strong>
+        <ul>
+          {% for field in form %}
+            {% if field.errors %}
+              {% for error in field.errors %}
+                <li>{{ field.label }}: {{ error }}</li>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    {{ form.as_p }}  {# Отрисовываем все поля формы #}
+    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+  </form>
+{% endblock %}
